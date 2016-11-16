@@ -1,25 +1,25 @@
-var React = require('react');
-var PropTypes = React.PropTypes;
+import React, { PropTypes } from 'react';
 
-function Button (props) {
+
+function Button ({ onSubmitCity, children }) {
   return (
     <button type='button'
       style={{margin: 10}}
       className='btn btn-success'
-      onClick={props.onSubmitCity}>
-        {props.children}
+      onClick={onSubmitCity}>
+        {children}
     </button>
   )
 }
 
-function InputField (props) {
+function InputField ({ onUpdateCity, children, city }) {
   return (
     <input
       className='form-control'
-      onChange={props.onUpdateCity}
+      onChange={onUpdateCity}
       placeholder='St. George, Utah'
       type='text'
-      value={props.city} />
+      value={city} />
   )
 }
 
@@ -55,4 +55,4 @@ GetCity.propTypes = {
   city: PropTypes.string.isRequired
 }
 
-module.exports = GetCity;
+export default GetCity;
